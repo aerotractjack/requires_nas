@@ -12,7 +12,7 @@ file = "NAS/files/to_process/1.tiff"
 file_processing(file)
 ```
 ```terminal
->>> Error: No such file or directory "NAS/files/to_process/1.tiff" 
+>>> Error: Cannot process file, no connection to NAS found 
 ```
 
 After
