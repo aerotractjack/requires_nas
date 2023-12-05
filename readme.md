@@ -1,5 +1,5 @@
 # requires_nas
-Make sure your NAS-requiring software has a connection to it
+Make sure your NAS-requiring software has a connection to it (after power outages, etc)
 
 # Usage
 To use, import the `requires_nas` or `requires_nas_loop` function and plug into your code before it tries to reach the NAS 
