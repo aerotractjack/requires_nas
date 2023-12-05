@@ -1,1 +1,1 @@
-from .requires_nas import requires_nas
+from .requires_nas import requires_nas, requires_nas_loop
