@@ -20,15 +20,15 @@ def requires_nas(mount_point=mp):
         subprocess.run(mount_command, check=True)
         return 1
     
-def requires_nas_loop(mount_point=mp, delay=0.2, n=100):
+def requires_nas_loop(mount_point=mp, delay=0.2, n=100, info_logger=log, error_logger=log):
     x = 0
     while True:
         if requires_nas(mount_point=mount_point):
-            log("NAS mounted!")
+            info_logger("NAS mounted!")
             return 1
         x += 1
         if n is not None and x >= n:
-            log("Failed to mount NAS")
+            error_logger("Failed to mount NAS")
             return 0
-        log("Waiting for NAS...")
+        info_logger("Waiting for NAS...")
         time.sleep(delay)
