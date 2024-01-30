@@ -21,15 +21,18 @@ def requires_nas(mount_point=mp):
         return 1
     
 def requires_nas_loop(mount_point=mp, delay=0.2, n=100, 
-                      info_logger=log, error_logger=log):
+                      info_logger=log, error_logger=log,
+                      log_mounted=True, log_failed=True):
     x = 0
     while True:
         if requires_nas(mount_point=mount_point):
-            info_logger("NAS mounted!")
+            if log_mounted:
+                info_logger("NAS mounted!")
             return 1
         x += 1
         if n is not None and x >= n:
-            error_logger("Failed to mount NAS")
+            if log_failed:
+                error_logger("Failed to mount NAS")
             return 0
         info_logger("Waiting for NAS...")
         time.sleep(delay)
